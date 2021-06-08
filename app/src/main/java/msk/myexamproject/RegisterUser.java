@@ -119,8 +119,8 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
 
                             //Send user object to real time database
                             FirebaseDatabase.getInstance().getReference("Users")
-                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                    .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid()) //Returning id from registered user
+                                    .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() { //Passes the value
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if(task.isSuccessful()){
@@ -140,7 +140,5 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
                         }
                     }
                 });
-
-
     }
 }
